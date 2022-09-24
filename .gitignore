@@ -37,3 +37,14 @@ vignettes/*.pdf
 
 # R Environment Variables
 .Renviron
+
+# LaTeX auxiliary variables
+*.tex
+*.log
+*.nav
+*.snm
+*.synctex.gz
+*.toc
+
+# Ignore test presentation
+test*
