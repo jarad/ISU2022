@@ -7,6 +7,8 @@
 \usetheme{AnnArbor}
 \usecolortheme{beaver}
 
+\definecolor{Cardinal}{RGB}{200,16,46}
+
 % \usetikzlibrary{arrows.meta,positioning}
 
 \graphicspath{{include/}}
@@ -23,6 +25,22 @@
 }
 \newcommand{\backupend}{
    \setcounter{framenumber}{\value{finalframe}}
+}
+
+\newcommand{\transitionslide}[1]{
+{
+% \setbeamertemplate{navigation symbols}{} 
+\setbeamercolor{background canvas}{bg=Cardinal}
+\setbeamercolor{normal text}{fg=white}
+\usebeamercolor[fg]{normal text}
+\begin{frame}[plain]
+
+\begin{center}
+{\Huge #1}
+\end{center}
+
+\end{frame}
+}
 }
 
 \setbeamertemplate{navigation symbols}{}
@@ -123,6 +141,7 @@ Gaussian Process Emulators:
 \end{frame}
 
 
+\transitionslide{Agriculture}
 
 \section{Effects of agriculture}
 \subsection{Production}
@@ -162,6 +181,17 @@ second in soybeans and red meat production.
 
 
 
+\begin{frame}
+\frametitle{Corn production}
+\includegraphics[width=0.3\textwidth]{farmland}
+{\tiny \url{https://www.iowaagliteracy.org/Article/Family-Farms-Then-and-Now}}
+
+\includegraphics[width=0.3\textwidth]{corn_yield}
+{\tiny \url{https://extension.entm.purdue.edu/newsletters/pestandcrop/article/historical-corn-grain-yields-in-the-u-s/}}
+\end{frame}
+
+
+
 
 \subsection{Soil loss}
 \begin{frame}
@@ -193,16 +223,16 @@ Iowa loses \$1,000,000,000/year in soil
 
 
 
-\subsection{Des Moines Water Works Lawsuit}
-\begin{frame}
-\frametitle{Des Moines Water Works Lawsuit}
-\setkeys{Gin}{width=0.7\textwidth}
-
-\includegraphics{des_moines_water_works_lawsuit}
-
-{\tiny \url{https://www.lwvumrr.org/blog/des-moines-water-works-lawsuit-update}}
-
-\end{frame}
+% \subsection{Des Moines Water Works Lawsuit}
+% \begin{frame}
+% \frametitle{Des Moines Water Works Lawsuit}
+% \setkeys{Gin}{width=0.7\textwidth}
+% 
+% \includegraphics{des_moines_water_works_lawsuit}
+% 
+% {\tiny \url{https://www.lwvumrr.org/blog/des-moines-water-works-lawsuit-update}}
+% 
+% \end{frame}
 
 
 
@@ -211,19 +241,31 @@ Iowa loses \$1,000,000,000/year in soil
 \begin{frame}[t]
 \frametitle{C-CHANGE: Science for a changing agriculture}
 
-\begin{columns}[t]
+\begin{columns}[T]
 \begin{column}{0.35\textwidth}
 \includegraphics[width=\textwidth]{cchange}
 \url{http://agchange.org} \pause
 \end{column}
-\begin{column}{0.5\textwidth}
-\includegraphics[width=\textwidth]{prairie_strips}
-\url{http://prairiestrips.org}
+\begin{column}{0.45\textwidth}
+Prairie STRIPS
+
+C-CHANGE PIRIR
+
+C-CHANGE  Grass2Gas
+
+Climate Smart Ag
+% \begin{itemize}
+% \item Prairie STRIPS 
+% \item C-CHANGE PIRI 
+% \item C-CHANGE Grass2Gas 
+% \item Climate Smart Ag
+% \end{itemize}
 \end{column}
 \end{columns}
 \end{frame}
 
 
+\transitionslide{Prairie STRIPS}
 
 
 \subsection{STRIPS1}
@@ -232,12 +274,12 @@ Iowa loses \$1,000,000,000/year in soil
 \begin{columns}
 \begin{column}{0.5\textwidth}
 \adjincludegraphics[trim={{.4\width} 0 0 {.57\height}}, clip, width=\textwidth]{map}
-\href{https://www.google.com/maps/place/Neal+Smith+National+Wildlife+Refuge/@41.5475331,-93.2686897,3219m/data=!3m1!1e3!4m5!3m4!1s0x87eee81ce3a71817:0xc745a0b0aed9e495!8m2!3d41.5652684!4d-93.2766143}{Find on Google Maps}
+\href{https://www.google.com/maps/place/Neal+Smith+National+Wildlife+Refuge/@41.5475331,-93.2686897,3219m/data=!3m1!1e3!4m5!3m4!1s0x87eee81ce3a71817:0xc745a0b0aed9e495!8m2!3d41.5652684!4d-93.2766143}{Find on Google Maps} \pause
 \end{column}
 \begin{column}{0.5\textwidth}
 \includegraphics[width=\textwidth]{treatments}
 
-\vspace{0.5in}
+\vspace{0.5in} \pause
 
 \includegraphics[width=\textwidth]{design}
 \end{column}
@@ -245,16 +287,16 @@ Iowa loses \$1,000,000,000/year in soil
 \end{frame}
 
 
-\begin{frame}
+\begin{frame}[t]
 \frametitle{STRIPS1 - Science}
 \begin{columns}
 \begin{column}{0.6\textwidth}
-\includegraphics[width=\textwidth]{strips_overview}
+\onslide<2->{\includegraphics[width=\textwidth]{strips_overview}}
 \vspace{0.1in}
 \end{column}
 \begin{column}{0.4\textwidth}
 \adjincludegraphics[trim={0 0 0 {.2\height}}, clip, width=\textwidth]{strips_field}
-\includegraphics[width=\textwidth]{flumes}
+\onslide<3->{\includegraphics[width=\textwidth]{flumes}}
 \end{column}
 \end{columns}
 \end{frame}
@@ -262,20 +304,21 @@ Iowa loses \$1,000,000,000/year in soil
 
 \begin{frame}
 \frametitle{STRIPS1 - PNAS}
-\includegraphics[width=0.6\textwidth]{pnas_title}
+\adjincludegraphics[trim={0 {.785\height} 0 0}, clip, width=\textwidth]{pnas_fig}
 
 \pause
-
-\adjincludegraphics[trim={0 {.785\height} 0 0}, clip, width=\textwidth]{pnas_fig}
 
 \adjincludegraphics[trim={0 0 0 {.653\height}}, clip, width=\textwidth]{pnas_fig}
 \end{frame}
 
 
 \begin{frame}
-\frametitle{USDA CRP - CP-43}
+\frametitle{USDA CRP: CP-43}
+\includegraphics[width=0.6\textwidth]{pnas_title}
+
+\vspace{0.5in} \pause
+
 \includegraphics[width=0.6\textwidth]{cp-43}
-\includegraphics[width=0.6\textwidth]{ISR21_SPRING_4}
 \end{frame}
 
 
@@ -286,9 +329,10 @@ Iowa loses \$1,000,000,000/year in soil
 
 
 
+\transitionslide{Gaussian Process Emulators}
 
 
-\section{WEPP Emulator}
+\section{Emulators}
 \subsection{DEP}
 \begin{frame}
 \frametitle{Daily Erosion Project (DEP)}
@@ -321,7 +365,6 @@ Iowa loses \$1,000,000,000/year in soil
 
 
 
-\section{Gaussian Process}
 \begin{frame}
 \frametitle{Gaussian Process Emulators}
 Consider a deterministic computer model $f(\cdot)$ with 
@@ -338,10 +381,8 @@ where
 
 We assume a Gaussian Process prior 
 \[ f \sim \mathcal{GP}\left(m, k \right) \implies Y \sim N(m_x, \Sigma) \]
-where, for scalar inputs, 
-$\Sigma_{ij} = k(x_i,x_j) = \sigma^2 e^{-(x_i-x_j)^2/\phi}$
-\pause
-and (often) $m_x = 0$. 
+where (often) $m_x = 0$ \pause and, for scalar inputs, 
+$\Sigma_{ij} = k(x_i,x_j) = \sigma^2 e^{-(x_i-x_j)^2/\phi}$. 
 
 \vspace{0.1in} \pause 
 
@@ -353,6 +394,8 @@ Two research directions:
 \end{frame}
 
 
+
+
 \subsection{Training a GP}
 \begin{frame}
 \frametitle{Training a GP}
@@ -361,15 +404,15 @@ Find the maximum likelihood estimator (MLE) for $\theta = (\sigma^2,\phi)$,
 
 \[
 \hat{\theta} = \mbox{argmax}_\theta \, p(y|\theta) 
-= \mbox{argmax}_{\theta} \, N\left(y; m_x, \Sigma(\theta)\right)
+= \mbox{argmax}_{\theta} \, N\left(y; 0, \Sigma(\theta)\right)
 \]
 
 where $y=(y_1,\ldots,y_N)$.
 The log-likelihood is
 \[ 
-\log \mathcal{N}(y; m_x, \Sigma(\theta) = C 
-- \frac{1}{2}\log | \Sigma(\theta)| 
--\frac{1}{2} y^\top [ \Sigma(\theta)]^{-1} y
+\log \mathcal{N}(y; 0, \Sigma(\theta) \propto C 
+- \log | \Sigma(\theta)| 
+- y^\top \Sigma(\theta)^{-1} y
 \]
 
 \pause
@@ -385,6 +428,11 @@ and larger data sets.
 \end{frame}
 
 
+
+
+\transitionslide{OAT Algorithm}
+
+
 \subsection{Sparse GPs using knots}
 \begin{frame}
 \frametitle{Fully Independent Conditional (FIC) Approximation}
@@ -393,14 +441,15 @@ Introduce a set of knots $x^{\dagger} = \left\{x_1^\dagger, \ldots, x_K^\dagger 
 \pause
 such that 
 \[
-p(f_x,f_{x^{\dagger}}|\theta) = p(f_x|f_{x^{\dagger}}, \theta) p(f_{x^{\dagger}}|\theta).
+p(f_x,f_{x^{\dagger}}|\theta) = p(f_x|f_{x^{\dagger}}, \theta) p(f_{x^{\dagger}}|\theta)
 \]
 \pause
 where
 \[ \begin{array}{rl}
-f_x| f_{x^{\dagger}} , \theta  &\sim  \mathcal{N}\left(0, \Sigma_{xx^{\dagger}} \Sigma_{x^{\dagger}x^{\dagger}}^{-1}(f_{x^{\dagger}}) , \Lambda \right)  \pause \\
-f_{x^{\dagger}}| \theta &\sim  \mathcal{N}(0, \Sigma_{x^{\dagger}x^{\dagger}}) 
+f_{x^{\dagger}}| \theta &\sim  \mathcal{N}(0, \Sigma_{x^{\dagger}x^{\dagger}}) \pause \\
+f_x| f_{x^{\dagger}} , \theta  &\sim  \mathcal{N}\left(\Sigma_{xx^{\dagger}} \Sigma_{x^{\dagger}x^{\dagger}}^{-1}(f_{x^{\dagger}}) , \Lambda \right) 
 \end{array} \]
+\pause
 with $\Lambda = \text{diag}\left(\Sigma_{xx} - \Sigma_{x x^{\dagger}} \Sigma_{x^{\dagger}x^{\dagger}}^{-1} \Sigma_{x^{\dagger}x}\right)$.
 
 \vspace{0.2in} \pause
@@ -441,14 +490,14 @@ Train the model by finding
 which has computational complexity of $\mathcal{O}(NK^2)$.
 \vspace{0.2in} \pause
 
-Appealing due to similarity with Full GP MLE approach and massively reduced
-computational complexity, \pause
-but there are a number of questions:
+There are a number of questions:
 \begin{itemize}
 \item how many knots are needed?
 \item where should the knots be?
 \end{itemize}
 \end{frame}
+
+
 
 
 \subsection{One-at-a-time (OAT) selection}
@@ -461,6 +510,14 @@ We developed a \alert{one-at-a-time (OAT) knot selection} that
 \item Iteratively adds knots until no improvement is seen in the objective function
 \end{itemize}
 
+\vspace{0.2in} \pause
+
+Summary of results:
+\begin{itemize}
+\item Prediction is equivalent to Full GP and simultaneous knot optimization
+\item Formally, OAT has computational complexity of $\mathcal{O}(NK^2)$
+\item Practically, OAT is much faster than Full GP and simultaneous knot optimization
+\end{itemize}
 
 \vspace{0.2in} \pause
 
@@ -472,6 +529,8 @@ Manuscripts:
 
 \end{frame}
 
+
+\transitionslide{Functional inputs}
 
 
 % \subsection{Boston Housing}
