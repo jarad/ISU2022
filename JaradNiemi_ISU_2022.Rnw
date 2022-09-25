@@ -102,15 +102,24 @@ set.seed(20210611)
 
 \begin{frame}
 \frametitle{Collaborators}
-\begin{center}
-\begin{tikzpicture}
-  \node (img1) {\includegraphics[height=3cm]{lisasm_headshot_20170731}};
-  \pause
-  \node (img2) at (img1.south east) {\includegraphics[height=3cm]{Helmers_Matt}};
-  \pause
-  \node (img3) at (img2.south west) [yshift=1cm] {\includegraphics[height=3cm]{matt_liebman}};
-\end{tikzpicture}
-\end{center}
+Prairie STRIPS Collaborators: \url{http://prairiestrips.org/people}
+
+\vspace{0.2in} \pause
+
+Gaussian Process Emulators:
+
+\begin{columns}
+\begin{column}{0.33\textwidth}
+\includegraphics[width=\textwidth]{nate_garton}
+\end{column}
+\begin{column}{0.33\textwidth}
+\includegraphics[width=\textwidth]{alicia_carriquiry} \pause
+\end{column}
+\begin{column}{0.33\textwidth}
+\includegraphics[width=\textwidth]{luis_damiano}
+\end{column}
+\end{columns}
+
 \end{frame}
 
 
@@ -273,55 +282,14 @@ Iowa loses \$1,000,000,000/year in soil
 
 
 
-\section{USDA NIFA}
-\begin{frame}
-\frametitle{USDA NIFA - Biogas production from manure and herbaceous biomass}
-\setkeys{Gin}{width=0.8\textwidth}
-
-\includegraphics{usda_nifa}
-
-\vspace{0.2in} 
-
-\includegraphics{usda_nifa_value_chain}
-
-\end{frame}
 
 
 
-\subsection{Computer models}
-\begin{frame}
-  \frametitle{Computer models}
 
-  \begin{itemize}[<+->]
-  \item \href{https://www.fs.usda.gov/ccrc/tools/watershed-erosion-prediction-project}{Water Erosion Prediction Project (WEPP)}
-    \begin{itemize}
-    \item \href{https://www.dailyerosion.org/map}{Daily Erosion Project (DEP)}
-    % \item \href{https://www.dailyerosion.org/map/#20200908//avg_delivery/-94.50/42.10/6//0/}{Daily Erosion Project (DEP)}
-    \end{itemize}
-  \item \href{https://www.apsim.info/}{Agricultural Production Systems sIMulator (APSIM)}
-    \begin{itemize}
-    \item \href{https://cchange.research.iastate.edu/projects/foresite-precision-agriculture-data-as-an-isu-service/}{Foresite}
-    \end{itemize}
-  \item \href{https://github.com/PSUmodeling/Cycles}{Cycles}
-  \item \href{http://www.iowabiogasmodel.us/}{Iowa Biogas Assessment Model (IBAM)}
-  \item others...
-  \end{itemize}
-\end{frame}
 
-% LD ---------------------------------------------------------------------------
 
-% Part I: Introduction ---------------------------------------------------------
-\section{Introduction}
-\begin{frame}
-  \frametitle{WEPP}
-
-  \begin{figure}
-      \begin{center}
-          \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{./include/wepp}
-      \end{center}
-  \end{figure}
-\end{frame}
-
+\section{WEPP Emulator}
+\subsection{DEP}
 \begin{frame}
 \frametitle{Daily Erosion Project (DEP)}
 \framesubtitle{using Water Erosion Prediction Project (WEPP)}
@@ -333,45 +301,23 @@ Iowa loses \$1,000,000,000/year in soil
 
 
 
+\subsection{WEPP}
+\begin{frame}
+  \frametitle{Water Erosion Prediction Project (WEPP)}
 
-% \begin{frame}
-%   \frametitle{APSIM}
-% 
-%   \begin{figure}
-%       \begin{center}
-%           \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{./include/foresite}
-%       \end{center}
-%   \end{figure}
-% \end{frame}
-% 
-% \begin{frame}
-%   \frametitle{APSIM}
-%   \framesubtitle{Input space}
-% 
-%   \begin{columns}
-%     \begin{column}{0.5\textwidth}
-%       \begin{itemize}[<+->]
-%         \item 2,160 run-specific input values
-%         \begin{itemize}
-%           \item Soil properties 22 functionals x 16 layers, 2 scalars.
-%           \item Climate dynamics 4 functionals x 365 daily values, 2 scalars.
-%           \item Land management practices, mostly categorical scalars.
-%         \end{itemize}
-%       \end{itemize}
-%     \end{column}
-% 
-%     \begin{column}{0.5\textwidth}
-%       \begin{itemize}[<+->]
-%         \item The input space is...
-%         \begin{itemize}
-%           \item High dimensional: computational and modeling challenging.
-%           \item Structured: complex to capture hierarchy.
-%           \item Vast: large number of runs to explore it.
-%         \end{itemize}
-%       \end{itemize}
-%     \end{column}
-%   \end{columns}
-% \end{frame}
+  \begin{figure}
+      \begin{center}
+          \includegraphics[width=\textwidth,height=0.8\textheight,keepaspectratio]{./include/wepp}
+      \end{center}
+  \end{figure}
+\end{frame}
+
+
+
+
+
+
+
 
 
 
