@@ -253,7 +253,7 @@ Iowa loses \$1,000,000,000/year in soil
 \begin{column}{0.45\textwidth}
 Prairie STRIPS
 
-C-CHANGE PIRIR
+C-CHANGE PIRI
 
 C-CHANGE  Grass2Gas
 
@@ -377,7 +377,6 @@ Y_i
 % = f(X_i, \psi) 
 = f(X_i), \quad i=1,\ldots,N
 \]
-
 where 
 \begin{itemize}
 % \item $\psi$ are model parameters, 
@@ -385,8 +384,12 @@ where
 \item $Y_i$ are outputs.
 \end{itemize}
 
-We assume a Gaussian Process prior 
-\[ f \sim \mathcal{GP}\left(m, k \right) \implies Y \sim N(m_x, \Sigma) \]
+\pause
+
+We assume a Gaussian Process  
+\[ f \sim \mathcal{GP}\left(m, k \right) \implies 
+Y = (Y_1,\ldots,Y_N)^\top \sim \mathcal{N}(m_x, \Sigma) \]
+\pause
 where (often) $m_x = 0$ \pause and, for scalar inputs, 
 $\Sigma_{ij} = k(x_i,x_j) = \sigma^2 e^{-(x_i-x_j)^2/\phi}$. 
 
@@ -410,12 +413,12 @@ Find the maximum likelihood estimator (MLE) for $\theta = (\sigma^2,\phi)$,
 
 \[
 \hat{\theta} = \mbox{argmax}_\theta \, p(y|\theta) 
-= \mbox{argmax}_{\theta} \, N\left(y; 0, \Sigma(\theta)\right)
+= \mbox{argmax}_{\theta} \, \mathcal{N}\left(y; 0, \Sigma(\theta)\right)
 \]
 
 where $y=(y_1,\ldots,y_N)$.
 
-\vspace{0.2in}
+\vspace{0.2in} \pause
 
 The log-likelihood is
 \[ 
@@ -424,7 +427,7 @@ The log-likelihood is
 - y^\top \Sigma(\theta)^{-1} y
 \]
 
-\pause
+\vspace{0.2in} \pause
 
 If there are $N$ observations, 
 $\Sigma(\theta)$ is an $N\times N$ covariance matrix \pause
@@ -456,7 +459,7 @@ p(f_x,f_{x^{\dagger}}|\theta) = p(f_x|f_{x^{\dagger}}, \theta) p(f_{x^{\dagger}}
 where
 \[ \begin{array}{rl}
 f_{x^{\dagger}}| \theta &\sim  \mathcal{N}(0, \Sigma_{x^{\dagger}x^{\dagger}}) \pause \\
-f_x| f_{x^{\dagger}} , \theta  &\sim  \mathcal{N}\left(\Sigma_{xx^{\dagger}} \Sigma_{x^{\dagger}x^{\dagger}}^{-1}(f_{x^{\dagger}}) , \Lambda \right) 
+f_x| f_{x^{\dagger}} , \theta  &\sim  \mathcal{N}\left(\Sigma_{xx^{\dagger}} \Sigma_{x^{\dagger}x^{\dagger}}^{-1}f_{x^{\dagger}}, \Lambda \right) 
 \end{array} \]
 \pause
 with $\Lambda = \text{diag}\left(\Sigma_{xx} - \Sigma_{x x^{\dagger}} \Sigma_{x^{\dagger}x^{\dagger}}^{-1} \Sigma_{x^{\dagger}x}\right)$.
@@ -468,7 +471,7 @@ This joint implies the following marginal distribution for $f_x$:
 f_x| \theta \sim \mathcal{N}(0, \Lambda + \Sigma_{x x^{\dagger}} \Sigma_{x^{\dagger}x^{\dagger}}^{-1} \Sigma_{x^{\dagger}x})
 \]
 \pause
-which has the correct marginal means and variances,
+which has the correct marginal means and variances, \pause
 but the covariances are controlled by the knots.
 
 \vspace{0.1in} \pause 
@@ -515,7 +518,7 @@ There are a number of questions:
 We developed a \alert{one-at-a-time (OAT) knot selection} that 
 \begin{itemize}
 \item Begins with a small number of knots
-\item Optimizes the knot locations according to the marginal likelihood or variational objective function
+\item Optimizes the knot locations according to the approximate likelihood or variational objective function
 \item Iteratively adds knots until no improvement is seen in the objective function
 \end{itemize}
 
@@ -583,13 +586,14 @@ Our computer model is $f()$ with $Y_i = f(X_i)$.
 
 \vspace{0.1in} \pause
 
-Assume $f$ is a zero-mean Gaussian process with
+Assume $f$ is a zero-mean GP with
 \[ Cov(Y_i,Y_j) = \sigma^2 e^{-\frac{1}{2} D(X_i, X_j, \omega)} \]
 \pause
 and
 \[
 D(X_i, X_j, \omega) = \sum_{d = 1}^{D}{\omega_d (x_{i, d} - x_{j, d})^2}.
 \]
+\pause
 Some call this \alert{automatic relevance determination}. 
 \end{frame}
 
@@ -657,7 +661,7 @@ We'll refer to this as \alert{fiGP} and
   Research/policy advances
   \begin{itemize}
   \item Prairie strips impact on agroecosystem services and inclusion in CRP as CP-43
-  \item OAT algorithm for knot selection to deal with computational intractability due to large $n$
+  \item OAT algorithm for knot selection to deal with computational intractability due to large $N$
   \item fiGP/DARD model for functional inputs
   \end{itemize}
 
