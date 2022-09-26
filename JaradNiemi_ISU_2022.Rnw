@@ -575,7 +575,7 @@ Manuscripts:
 
 
 
-
+\subsection{Functional-input Gaussian process}
 \begin{frame}
 \frametitle{Vector-input Gaussian Process (viGP)}
 
@@ -601,7 +601,7 @@ Some call this \alert{automatic relevance determination}.
 
 
 \begin{frame}
-  \frametitle{Functional-input Gaussian Process}
+  \frametitle{Functional-input Gaussian process}
 
 For observation $i$, we have $Y_i \in \R$ and $X_i(t)$ for $t \in [0,T]$.
 \pause
@@ -614,7 +614,7 @@ The functional-input Gaussian Process has
 \[ Cov(Y_i,Y_j) = \sigma^2 e^{-\frac{1}{2} D(X_i(t), X_j(t), \omega)} \]
 \pause
 \[ D(X_i, X_j, \omega) = \int_0^T \omega(t) (X_i(t) - X_j(t))^2 dt \pause
-\approx \sum_{d=1}^D \omega(t_d) (X_i(t_d) - X_j(t_d))^2. \]
+\approx \sum_{d=1}^D \Delta t_d \omega(t_d) (X_i(t_d) - X_j(t_d))^2. \]
 \pause
 For the \alert{functional length-scale},
 we assume
