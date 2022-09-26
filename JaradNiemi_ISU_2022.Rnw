@@ -601,7 +601,7 @@ The functional-input Gaussian Process has
 \[ Cov(Y_i,Y_j) = \sigma^2 e^{-\frac{1}{2} D(X_i(t), X_j(t), \omega)} \]
 \pause
 \[ D(X_i, X_j, \omega) = \int_0^T \omega(t) (X_i(t) - X_j(t))^2 dt \pause
-\approx \sum_{d=1}^D \omega(t_d) (X_i(t_d) - X_j(t_d))^2. \]
+\approx \Delta t_d \sum_{d=1}^D \omega(t_d) (X_i(t_d) - X_j(t_d))^2. \]
 \pause
 For the \alert{functional length-scale},
 we assume
