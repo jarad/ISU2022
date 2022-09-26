@@ -563,7 +563,7 @@ Manuscripts:
 
 
 
-
+\subsection{Functional-input Gaussian process}
 \begin{frame}
 \frametitle{Vector-input Gaussian Process (viGP)}
 
